@@ -52,7 +52,12 @@ async function fetchAndTransform() {
   if (textChunk.includes('<?xml-stylesheet')) {
     // PI found, proceed with transformation. The page is already hidden.
     // The polyfill's replaceDoc function will handle revealing the new content.
-    await window.loadXmlContentWithXsltFromBytesWhenReady(xmlBytes, document.location.href);
+    try {
+      await xsltPolyfillReady();
+      await loadXmlWithXsltFromBytes(xmlBytes, document.location.href);
+    } catch (err) {
+      console.error(`Error displaying XML file: ${err.message || err.toString()}`);
+    }
     console.log('XSLT Polyfill has transformed this document.');
   } else {
     // No PI, unhide the original document.
