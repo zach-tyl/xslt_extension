@@ -31,15 +31,14 @@ let xslt_ext_hideRequestId = 0;
     } else {
         console.error('Error during XSLT transformation:', error);
     }
-    setHidden(false);
+    setHidden(false); // Error - stop. Make things visible again.
   });
 })();
 
 async function fetchAndTransform() {
   const response = await fetch(document.location.href);
   if (!response.ok) {
-    // If fetch fails, unhide and stop.
-    setHidden(false);
+    setHidden(false); // Error - stop. Make things visible again.
     console.warn(`XSLT Polyfill: Failed to fetch document: ${response.statusText}`);
     return;
   }
@@ -59,10 +58,8 @@ async function fetchAndTransform() {
       console.error(`Error displaying XML file: ${err.message || err.toString()}`);
     }
     console.log('XSLT Polyfill has transformed this document.');
-  } else {
-    // No PI, unhide the original document.
-    setHidden(false);
   }
+  setHidden(false);
 }
 
 function setHidden(hidden) {
