@@ -1,24 +1,24 @@
 let xslt_ext_hideRequestId = 0;
-
+window.xsltUsePolyfillAlways = true;
 // Immediately-invoked function to start the process.
 (function initTransform() {
-  let nativeSupported = ('XSLTProcessor' in window) && window.XSLTProcessor.toString().includes('native code');
-  if (nativeSupported) {
-    try {
-      new XSLTProcessor();
-    } catch {
-      nativeSupported = false;
-    }
-  }
-  if (nativeSupported) {
-    console.log('Not running the XSLT polyfill extension because this browser supports native XSLT.');
-    return;
-  }
+  //let nativeSupported = ('XSLTProcessor' in window) && window.XSLTProcessor.toString().includes('native code');
+  //if (nativeSupported) {
+  //  try {
+  //    new XSLTProcessor();
+  //  } catch {
+  //    nativeSupported = false;
+  //  }
+  //}
+  //if (nativeSupported) {
+  //  console.log('Not running the XSLT polyfill extension because this browser supports native XSLT.');
+  //  return;
+  //}
 
-  if (document.location.protocol === 'file:') {
-    console.log('XSLT polyfill extension: Fetching from file:// URLs is not supported by this extension.');
-    return;
-  }
+  //if (document.location.protocol === 'file:') {
+  //  console.log('XSLT polyfill extension: Fetching from file:// URLs is not supported by this extension.');
+  //  return;
+  //}
 
   // Step 1: Immediately hide the document to prevent FOUC.
   setHidden(true);
