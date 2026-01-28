@@ -4,6 +4,8 @@ This extension is intended to be loaded in Dev mode. It detects differences betw
 
 ## Loading the Extension (Dev Mode)
 
+Use Code -> Download Zip to get the files.
+
 1. Open Chrome and navigate to `chrome://extensions/`
 2. Enable **Developer mode** using the toggle in the top-right corner
 3. Click **Load unpacked**
