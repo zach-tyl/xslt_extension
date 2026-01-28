@@ -1,10 +1,6 @@
 # XSLT Extension
 
-A Chrome extension that automatically injects the [XSLT polyfill](https://github.com/mfreed7/xslt_polyfill) into XML documents.
-
-Find it on the Chrome Web Store, here:
-
-- https://chromewebstore.google.com/detail/xslt-polyfill/hlahhpnhgficldhfioiafojgdhcppklm
+This extension is intended to be loaded in Dev mode. It detects differences between native and polyfill xslt results.
 
 ## Improvements / Bugs
 
